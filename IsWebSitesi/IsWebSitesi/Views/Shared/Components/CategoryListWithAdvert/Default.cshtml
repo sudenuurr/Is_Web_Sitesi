@@ -1,0 +1,7 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Advert>
+
+@foreach (var item in Model)
+{
+    <li>@item.Company.Name</li>
+    <li>@item.Category.Name</li>
+}

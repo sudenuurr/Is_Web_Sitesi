@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Advert>
+@{
+    ViewData["Title"] = "AdvertListByCompany";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Departman</th>
+                                    <th>Çalışma Şekli</th>
+                                    <th>Deneyim</th>
+                                    <th>İlan Tarihi</th>
+                                    <th>Detaylar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@item.AdvertID</td>
+                                    <td>@item.Department</td>
+                                    <td>@item.JobType</td>
+                                    <td>@item.Experience</td>
+                                    <td>@item.PostedDate.ToShortDateString()</td>
+                                    <td><a href="#" class="btn btn-secondary">Detay</a></td>
+                                    
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="#" class="btn btn-secondary btn-lg btn-block">İlan Ekle</a>
+                    </div>
+                    <!-- END DATA TABLE-->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
