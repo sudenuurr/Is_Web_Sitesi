@@ -1,0 +1,32 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style=" color: steelblue; text-align:center ">KULLANICI LİSTESİ</h1>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kullanıcı Adı</th>
+            <th>Ad Soyad</th>
+            <th>Mail</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Id</th>
+            <td>@item.UserName</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Email</td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<br />
+<a href="/Admin/User/AddUser/" class="btn btn-warning">Yeni Kullanıcı Ekle</a>

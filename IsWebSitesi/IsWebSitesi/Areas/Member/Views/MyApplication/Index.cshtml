@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Application>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="page-title mb-0 p-0">Başvurularım</h3>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="background-color: white; color: dodgerblue">#</th>
+            <th style="background-color: white; color: dodgerblue; text-align: center ">İlan Başlık</th>
+            <th style="background-color: white; color: dodgerblue; text-align: center ">Başvuru Tarihi</th>
+            <th style="background-color: white; color: dodgerblue ;text-align:center">Başvuru Durumu</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ApplicationID</th>
+            <td>@item.Advert.Department</td>
+            <td>@item.ApplicationDate.ToShortDateString()</td>
+            <td>
+                @if (item.Status == "Başvurunuz Onaylandı.")
+                {
+                    <span style="font-weight: bold; color: lawngreen;">@item.Status</span>
+                }
+                else if (item.Status == "Başvurunuz Kabul Edilmedi.")
+                {
+                    <span style="font-weight: bold; color: red;">@item.Status</span>
+                }
+                else if (item.Status == "Başvuru Yapıldı. Onay Bekleniyor")
+                {
+                    <span style="font-weight: bold; color: darkblue;">@item.Status</span>
+                }
+                else
+                {
+                    @item.Status
+                }
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+

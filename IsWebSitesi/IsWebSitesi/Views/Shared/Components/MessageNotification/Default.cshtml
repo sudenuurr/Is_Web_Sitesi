@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Message2>
+<div class="noti-wrap">
+
+    <div class="noti__item js-item-menu">
+        <i class="zmdi zmdi-email"></i>
+        <span class="quantity"></span>
+        <div class="email-dropdown js-dropdown">
+            <div class="email__title">
+                <p>Mesajlarınız</p>
+            </div>
+            @foreach (var item in Model)
+            {
+                <a href="/Message/MessageDetails/@item.Message2ID">
+                    <div class="email__item">
+                        <div class="image img-cir img-40">
+                            <img src="~/CompanyImage/@item.SenderUser.ImageUrl" alt="" />
+                        </div>
+                        <div class="content">
+                            <p>@item.SenderUser.UserName sana mesaj gönderdi</p>
+                            <span>@item.Date.ToShortDateString()</span>
+                        </div>
+                    </div>
+                </a>
+            }
+            <div class="email__footer">
+                <a href="/Message/InBox/">Tüm Mesajları Gör</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

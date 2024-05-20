@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+
+
+    <div class="col-lg-6">
+        <div class="table-responsive table--no-card m-b-40">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th class="text-right">Kategori</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Take(12))
+                    {
+                        <tr>
+                            <td>@item.CategoryID</td>
+                            <td class="text-right">@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+

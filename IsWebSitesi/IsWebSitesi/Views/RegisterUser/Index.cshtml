@@ -1,0 +1,130 @@
+﻿@model UserSignUpViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Register</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="~/EmployerTemplate/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="~/EmployerTemplate/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="~/EmployerTemplate/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/EmployerTemplate/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="~/EmployerTemplate/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        
+                        <h2 style="text-align: center;">Kullanıcı Kayıt Ekranı</h2>
+                        <div class="login-form">
+                            <form asp-action="Index" role="form" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label class="form-label text-color-dark text-3">Üye Tipi<span class="text-color-danger">*</span></label>
+                                        <select asp-for="RolID" asp-items="ViewBag.roller as List<SelectListItem>" class="form-control" id="SinifSelectBox" required="required"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    
+                                    <input class="au-input au-input--full" type="text" asp-for="@Model.NameSurname" placeholder="Adınız Soyadınız">
+                                </div>
+                                <div class="form-group">
+                                    <span asp-validation-for="@Model.Mail" class="text-danger"></span>
+                                    <input class="au-input au-input--full" type="email" asp-for="@Model.Mail" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                                    <input class="au-input au-input--full" type="text" asp-for="@Model.UserName" placeholder="Kullanıcı Adı">
+                                </div>
+                                <div class="form-group">
+                                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                                    <input class="au-input au-input--full" type="password" asp-for="@Model.Password" placeholder="Şifre">
+                                </div>
+                                <div class="form-group">
+                                    <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                                    <input class="au-input au-input--full" type="password" asp-for="@Model.ConfirmPassword" placeholder="Şifre Tekrar">
+                                </div>
+                                <div class="form-group">
+                                    <label>Resim</label>
+                                    <input class="form-control" type="file" asp-for="@Model.ImageUrl" />
+                                </div>
+                                <div class="checkbox i-checks">
+                                    <label>
+                                        <span asp-validation-for="@Model.IsAcceptTheContract" class="text-danger"></span>
+                                        <input type="checkbox" asp-for="IsAcceptTheContract"><i></i>
+                                        Kullanım şartlarını okudum kabul ediyorum. Kabul ediyorum
+                                    </label>
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Kayıt Ol</button>
+
+                            </form>
+                            <div class="register-link">
+                                <p>
+                                    Bir hesabınız var mı?
+                                    <a href="/Login/Index/">Giriş Yap</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="~/EmployerTemplate/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/EmployerTemplate/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="~/EmployerTemplate/vendor/slick/slick.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/wow/wow.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/animsition/animsition.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/EmployerTemplate/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/EmployerTemplate/vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/EmployerTemplate/js/main.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->

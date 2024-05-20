@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Message2>
+
+@{
+    ViewData["Title"] = "AdminInBox";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="page-title mb-0 p-0">Gelen Kutusu</h3>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Konu</th>
+                                    <th>Gönderen</th>
+                                    <th>Tarih</th>
+                                    <th>Mesaj Detay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Message2ID</td>
+                                        <td>@item.Subject</td>
+                                        <td>@item.SenderUser.UserName</td>
+                                        <td>@item.Date.ToShortDateString()</td>
+                                        <td><a href="/Admin/AdminMessage/AdminMessageDetails/@item.Message2ID" class="btn btn-secondary">Detay</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Admin/AdminMessage/AdminAddMessage/" class="btn btn-outline-success btn-lg btn-block">Yeni Mesaj Oluştur</a>
+                    </div>
+                    <!-- END DATA TABLE-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

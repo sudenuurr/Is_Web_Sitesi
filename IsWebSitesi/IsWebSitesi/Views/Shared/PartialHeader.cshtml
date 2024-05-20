@@ -1,0 +1,46 @@
+﻿<header>
+    <!-- Header Start -->
+    <div class="header-area header-transparrent">
+        <div class="headder-top header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-2">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="~/jobportal/assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <div class="menu-wrapper">
+                            <!-- Main-menu -->
+                            <div class="main-menu">
+                                <nav class="d-none d-lg-block">
+                                    <ul id="navigation">
+                                        <li><a href="/AnaSayfa/Index/">Ana Sayfa</a></li>
+                                        <li><a href="/Adverts/Index/">İş Ara </a></li>
+                                        <li><a href="/Company/Index/">Firmalar</a></li>
+                                        <li><a href="/About/Index/">Hakkımızda</a></li>
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                                        {
+                                            <li><a href="profile.html">Profilim</a></li>
+                                        }
+                                    </ul>
+                                </nav>
+                            </div>
+                            @*Header-btn -*@
+                            <div class="header-btn d-none f-right d-lg-block">
+                                <a href="/Register/Index/" class="btn head-btn1">Üye Ol</a>
+                                <a href="/Login/Index/" class="btn head-btn2">Giriş Yap</a>
+                            </div>
+                        </div>
+                    </div>
+                    @*Mobile Menu*@
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Header End*@
+</header>

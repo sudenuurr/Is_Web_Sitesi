@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.Application
+@{
+    ViewData["Title"] = "ApplicationEdit";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+
+@await Component.InvokeAsync("ApplicationUser", new { id = Model.ApplicationID })
+<br />
+@using (Html.BeginForm("ApplicationEdit", "Application", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.AdvertID)
+    @Html.HiddenFor(x => x.AppUserId)
+    @Html.HiddenFor(x => x.ApplicationID)
+    @Html.HiddenFor(x => x.ApplicationDate)
+    <h4 style="text-align: center;">Başvuru Durumu Güncelle</h4><br />
+    @Html.DropDownListFor(x => x.Status, (IEnumerable<SelectListItem>)ViewBag.StatusList, new { @class = "form-control" })
+    <br />
+    <div style="text-align: center;">
+        <button class="btn btn-outline-secondary btn-lg btn-block">Güncelle</button>
+    </div>
+
+}
+
+

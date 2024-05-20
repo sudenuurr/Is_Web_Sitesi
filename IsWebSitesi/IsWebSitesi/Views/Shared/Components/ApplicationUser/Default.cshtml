@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Application>
+<br /><br /><br /><br /><br />
+<div class="col-md-12">
+    <!-- DATA TABLE-->
+    <div class="user-info">
+        <h2 style="text-align: center;">Kullanıcı Bilgileri</h2><br />
+    </div>
+    <table class="table table-borderless table-data3">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Başvuran İsim Soyisim</th>
+                <th>İlan Başlığı</th>
+                <th>Başvuru Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.AppUser.ImageUrl" alt="User Image" width="50" height="50" style="border-radius: 50%;">
+                    </td>
+                    <td>@item.AppUser.NameSurname</td>
+                    <td>@item.Advert.Department</td>
+                    <td>@item.ApplicationDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+

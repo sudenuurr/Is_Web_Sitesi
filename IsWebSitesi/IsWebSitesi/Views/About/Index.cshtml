@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<body>
+    <main>
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="~/jobportal/assets/img/hero/about.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>HAKKIMIZDA</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- Support Company Start-->
+        @foreach (var item in Model)
+        {
+            <div class="support-company-area fix section-padding2">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="right-caption">
+                                <!-- Section Tittle -->
+                                <div class="section-tittle section-tittle2">
+
+                                    <h2>@item.Title</h2>
+                                </div>
+                                <div class="support-caption">
+                                    <p class="pera-top">@item.Description1</p>
+                                    <p>@item.Description2</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="support-location-img">
+                                <img src="@item.ImageUrl" alt="">
+                                <div class="support-img-cap text-center">
+                                    <p>  </p>
+                                    <span>Firma</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </main>
+</body>
+</html>
+

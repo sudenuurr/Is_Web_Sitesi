@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete
+@model List<Company>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<body>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="/jobportal/assets/img/hero/about.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>FİRMALAR</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <!-- Count of Job list End -->
+        <!-- single-job-content -->
+        @foreach (var item in Model)
+        {
+        <div class="single-job-items mb-30" style="margin: 0 auto; max-width: 1300px;">
+            <div class="job-items">
+                <div class="company-img">
+                    <a href="#"><img src="~/CompanyImage/@item.ImageUrl" style="width:9em; height:7em;" alt=""></a>
+                </div>
+                <div class="job-tittle job-tittle2">
+                    <a href="#">
+                        <h4>@item.Name</h4>
+                    </a>
+                    <ul>
+                        <li>@item.Phone</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="items-link items-link2 f-right">
+                <a href="/Company/CompanyDetails/@item.CompanyID">Firma Hakkında</a>
+                <span>@item.Website</span>
+            </div>
+        </div>
+        }
+       
+
+    </main>
+</body>
+</html>

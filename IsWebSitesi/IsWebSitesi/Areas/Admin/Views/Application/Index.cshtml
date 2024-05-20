@@ -1,0 +1,39 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Application>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2 style=" color: steelblue; text-align:center;">BAŞVURU LİSTESİ</h2>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Departman</th>
+            <th>Başvuran</th>
+            <th>Başvuru Tarihi</th>
+            <th>Durumu</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ApplicationID</th>
+            <td>@item.Advert.Department</td>
+            <td>@item.AppUser.NameSurname</td>
+            <td>@item.ApplicationDate.ToShortDateString()</td>
+            <td>@item.Status</td>
+            <td>
+                <a href="/Admin/Application/DeleteApplication/@item.ApplicationID" id="DeleteBtn"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<br />
+<a href="/PdfReport/ExportPdfAdvertList/" class="btn btn-primary">Pdf Raporu İndir</a>
+

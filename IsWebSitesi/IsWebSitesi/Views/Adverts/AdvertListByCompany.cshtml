@@ -1,0 +1,72 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Advert>
+@{
+    ViewData["Title"] = "AdvertListByCompany";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+<div class="main-content">
+    <div class="section_content section_content--p30">
+        <div class="container-fluid">
+
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    @*DATA TABLE*@
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Departman</th>
+                                    <th>Çalışma Şekli</th>
+                                    <th>Kategori</th>
+                                    <th>İlan Tarihi</th>
+                                    <th>Detaylar</th>
+                                    <th>Sil</th>
+                                    <th>Başvurular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.AdvertID</td>
+                                        <td>@item.Department</td>
+                                        <td>@item.JobType</td>
+                                        <td>@item.Category.Name</td>
+                                        <td>@item.PostedDate.ToShortDateString()</td>
+                                        <td><a href="/Adverts/AdvertEdit/@item.AdvertID" class="btn btn-secondary">Detay</a></td>
+                                        <td><a href="/Adverts/DeleteAdvert/@item.AdvertID" class="btn btn-secondary">Sil</a></td>
+                                        <td><a href="/Adverts/AdvertWithApplicationList/@item.AdvertID" class="btn btn-secondary">Görüntüle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Adverts/AdvertAdd/" class="btn btn-secondary btn-lg btn-block">İlan Ekle</a>
+                    </div>
+                    <div class="pagination-area pb-115 text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="single-wrap d-flex justify-content-center">
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination justify-content-start">
+                                                
+                                                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("AdvertListByCompany", new { page }))
+                                                
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    @*END DATA TABLE*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

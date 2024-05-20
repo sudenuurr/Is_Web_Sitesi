@@ -1,0 +1,98 @@
+﻿@model FilterViewModel
+
+<div class="job-category-listing mb-50">
+    <!-- single one -->
+    <form asp-controller="Adverts" asp-action="Index" method="post">
+        <div class="single-listing">
+            <div class="small-section-tittle2">
+                <h4>Kategori</h4>
+            </div>
+            <!-- Select job items start -->
+            <div class="select-job-items2">
+                <select name="CategoryID">
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option value="@item.CategoryID" class="kategori">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="select-Categories pt-80 pb-50">
+                <div class="small-section-tittle2">
+                    <h4>Çalışma Şekli</h4>
+                </div>
+                <div class="row">
+                    <input type="radio" asp-for="@Model.JobType" style="width:5em; height:1.3em;" class="form-check-input" value="Tam Zamanlı" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Tam Zamanlı</label>
+                </div>
+                <div class="row">
+                    <input type="radio" asp-for="@Model.JobType" style="width:5em; height:1.3em;" class="form-check-input" value="Yarı Zamanlı" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Yarı Zamanlı</label>
+                </div>
+
+                <div class="row">
+                    <input type="radio" asp-for="@Model.JobType" style="width:5em; height:1.3em;" class="form-check-input" value="Uzaktan" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Uzaktan</label>
+                </div>
+
+                <div class="row">
+                    <input type="radio" asp-for="@Model.JobType" style="width:5em; height:1.3em;" class="form-check-input" value="Hibrit" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Hibrit</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="single-listing">
+            <div class="small-section-tittle2">
+                <h4>Şehir</h4>
+            </div>
+            <!-- Select job items start -->
+            <div class="select-job-items2">
+                <select name="CityID">
+                    
+                    @foreach (var item in Model.Cities)
+                    {
+                        <option value="@item.CityID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <!--  Select job items End-->
+            <!-- select-Categories start -->
+            <div class="select-Categories pt-80 pb-0">
+            </div>
+            <!-- select-Categories End -->
+        </div>
+
+        <div class="single-listing">
+            <div class="select-Categories pb-50">
+                <div class="small-section-tittle2">
+                    <h4>İlan Tarihi</h4>
+                </div>
+                <div class="row">
+                    <input type="radio" asp-for="@Model.PostedDate" style="width:5em; height:1.3em;" class="form-check-input" value="Bugün" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Bugün</label>
+                </div>
+                <div class="row">
+                    <input type="radio" asp-for="@Model.PostedDate" style="width:5em; height:1.3em;" class="form-check-input" value="Son 2 Gün" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Son 2 Gün</label>
+                </div>
+
+                <div class="row">
+                    <input type="radio" asp-for="@Model.PostedDate" style="width:5em; height:1.3em;" class="form-check-input" value="Son 5 Gün" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Son 5 Gün</label>
+                </div>
+
+                <div class="row">
+                    <input type="radio" asp-for="@Model.PostedDate" style="width:5em; height:1.3em;" class="form-check-input" value="Son 10 Gün" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Son 10 Gün</label>
+                </div>
+
+                <div class="row">
+                    <input type="radio" asp-for="@Model.PostedDate" style="width:5em; height:1.3em;" class="form-check-input" value="Son 1 Ay" />
+                    <label class="form-check-label" style="margin-left:2.3em;">Son 1 Ay</label>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-danger">Uygula</button>
+    </form>
+    <a></a>
+</div>

@@ -1,0 +1,44 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Advert>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1 style=" color: steelblue; text-align:center ">İLAN LİSTESİ</h1>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Departman</th>
+            <th>Çalışma Türü</th>
+            <th>Kategori</th>
+            <th>Şirket Adı</th>
+            <th>İlan Tarihi</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AdvertID</th>
+            <td>@item.Department</td>
+            <td>@item.JobType</td>
+            <td>@item.Category.Name</td>
+            <td>@item.Company.Name</td>
+            <td>@item.PostedDate.ToShortDateString()</td>
+            <td><a href="/Admin/Advert/EditAdvert/@item.AdvertID" class="btn btn-primary">Düzenle</a></td>
+            <td>
+                <a href="/Admin/Advert/DeleteAdvert/@item.AdvertID" id="DeleteBtn"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<br />
+<a href="/Admin/Advert/AddAdvert/" class="btn btn-warning">Yeni İlan Ekle</a>
+<a href="/Admin/Advert/ExportExcelAdvertList/" class="btn btn-primary">Excel Listesi İndir</a>
+

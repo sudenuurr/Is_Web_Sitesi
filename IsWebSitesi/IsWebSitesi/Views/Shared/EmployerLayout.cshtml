@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("/Views/EmployerLayoutPartial/_HeadPartial.cshtml")
+<body class="animsition">
+    <div class="page-wrapper">
+        @await Html.PartialAsync("/Views/EmployerLayoutPartial/_AsidePartial.cshtml")
+        <div class="page-container">
+
+            @await Html.PartialAsync("/Views/EmployerLayoutPartial/_ProfilePartial.cshtml")
+            @RenderBody()
+        </div>
+    </div>
+    @await Html.PartialAsync("/Views/EmployerLayoutPartial/_ScriptPartial.cshtml")
+</body>
+</html>
+

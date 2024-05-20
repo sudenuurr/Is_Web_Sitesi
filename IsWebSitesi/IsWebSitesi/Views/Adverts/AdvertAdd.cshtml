@@ -1,0 +1,62 @@
+﻿@model EntityLayer.Concrete.Advert
+@{
+    ViewData["Title"] = "AdvertAdd";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<div style="text-align: center;"><h1>Yeni İlan Ekle</h1></div>
+
+<br />
+@using (Html.BeginForm("AdvertAdd", "Adverts", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample">
+                    @Html.Label("Departman")
+                    @Html.TextBoxFor(x => x.Department, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Department)
+                    <br />
+                    @Html.Label("Çalışma Şekli")
+                    @Html.DropDownListFor(x => x.JobType, new SelectList(
+                        new[]
+                        {
+                            new SelectListItem { Text = "Tam Zamanlı", Value = "Tam Zamanlı" },
+                            new SelectListItem { Text = "Yarı Zamanlı", Value = "Yarı Zamanlı" },
+                            new SelectListItem { Text = "Uzaktan", Value = "Uzaktan" },
+                            new SelectListItem { Text = "Hibrit", Value = "Hibrit" }
+                        }, "Value", "Text"), "Seçiniz", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.JobType)
+                    <br />
+                    @Html.Label("Açıklama")
+                    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Description)
+                    <br />
+                    @Html.Label("Gereklilikler")
+                    @Html.TextBoxFor(x => x.Required, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Required)
+                    <br />
+                    @Html.Label("Deneyim")
+                    @Html.TextBoxFor(x => x.Experience, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Experience)
+                    <br />
+                    @Html.Label("Kategori")
+                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Son Başvuru Tarihi")
+                    @Html.TextBoxFor(x => x.ApplicationDeadline, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-secondary">Ekle</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+}

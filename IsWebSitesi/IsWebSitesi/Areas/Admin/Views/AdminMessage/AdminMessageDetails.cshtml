@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Message2
+
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="page-title mb-0 p-0">Mesaj Detay</h3>
+        </div>
+    </div>
+</div>
+@Html.Label("Mesaj ID")
+@Html.TextBoxFor(x => x.SenderID, new { @class = "form-control" })
+<br />
+@Html.Label("Konu")
+@Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+<br />
+@Html.Label("Mesaj")
+@Html.TextAreaFor(x => x.Details, 10, 3, new { @class = "form-control" })
+<br />
+<a href="/Admin/AdminMessage/AdminInBox/" class="btn btn-success">Mesajlara Dön</a>
+
+
+

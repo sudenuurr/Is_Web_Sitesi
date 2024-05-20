@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Advert>
+
+@foreach (var item in Model)
+{
+    <div class="single-job-items mb-30">
+        <div class="job-items">
+            <div class="company-img">
+                <a href="#"><img src="~/CompanyImage/@item.Company.ImageUrl" style="width:9em; height:7em;" alt=""></a>
+            </div>
+            <div class="job-tittle job-tittle2">
+                <a href="#">
+                    <h4>@item.Department</h4>
+                </a>
+                <ul>
+                    <li>@item.Company.Name</li>
+                </ul>
+            </div>
+        </div>
+        <div class="items-link items-link2 f-right">
+            <a href="/Adverts/AdvertsDetail/@item.AdvertID">@item.JobType</a>
+            <span>@item.PostedDate.ToShortDateString()</span>
+        </div>
+    </div>
+}
+
+<br />
+

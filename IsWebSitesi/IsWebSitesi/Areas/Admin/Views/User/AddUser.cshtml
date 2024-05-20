@@ -1,0 +1,22 @@
+﻿@using IsWebSitesi.Areas.Admin.Models
+@model UserModel
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Ekleme Sayfası</h1>
+<form method="post">
+    <div class="form-group">
+        <label>Kullanıcı Adı</label>
+        <input type="text" name="username" class="form-control" />
+        <label>İsim Soyisim</label>
+        <input type="text" name="namesurname" class="form-control" />
+        <label>Mail</label>
+        <input type="text" name="mail" class="form-control" />
+        <label>Şifre</label>
+        <input type="text" name="password" class="form-control" />
+    </div>
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

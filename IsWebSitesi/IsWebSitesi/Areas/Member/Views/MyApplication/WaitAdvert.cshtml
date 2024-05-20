@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Application>
+@{
+    ViewData["Title"] = "WaitAdvert";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="page-title mb-0 p-0">Bekleyen Başvurularım</h3>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>İlan Başlık</th>
+            <th>Başvuru Tarihi</th>
+            <th>Başvuru Durumu</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ApplicationID</th>
+            <td>@item.Advert.Department</td>
+            <td>@item.ApplicationDate.ToShortDateString()</td>
+            <td>@item.Status</td>
+
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,41 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Company>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1 style=" color: steelblue; text-align:center ">FİRMA LİSTESİ</h1>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 8%;">#</th> <!-- 10% genişlik -->
+            <th style="width: 22%;">Firma Adı</th> <!-- 20% genişlik -->
+            <th style="width: 15%;">Web Site</th> <!-- 15% genişlik -->
+            <th style="width: 15%;">Email</th> <!-- 15% genişlik -->
+            <th style="width: 15%;">Telefon</th> <!-- 15% genişlik -->
+            <th style="width: 15%;">Şehir</th> <!-- 15% genişlik -->
+            <th style="width: 10%;">Sil</th> <!-- 10% genişlik -->
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center; vertical-align: middle;"><img src="~/CompanyImage/@item.AppUser.ImageUrl" style="width:7em; height:5em;" alt="Resim Yok"></td> <!-- 7em genişlik, 5em yükseklik -->
+            <td style="vertical-align: middle;">@item.AppUser.UserName</td> <!-- Dikey hizalama -->
+            <td style="vertical-align: middle;">@item.Website</td>
+            <td style="vertical-align: middle;">@item.AppUser.Email</td>
+            <td style="vertical-align: middle;">@item.Phone</td>
+            <td style="vertical-align: middle;">@item.City.Name</td>
+            <td style="vertical-align: middle;">
+                <a href="/Admin/Company/DeleteCompany/@item.CompanyID" id="DeleteBtn"
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<br />
+

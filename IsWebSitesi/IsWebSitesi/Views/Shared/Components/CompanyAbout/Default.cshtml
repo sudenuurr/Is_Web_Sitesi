@@ -1,0 +1,21 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Company>
+
+
+<div class="post-details4  mb-50">
+    <!-- Small Section Tittle -->
+    <div class="small-section-tittle">
+
+        <h4 style="text-align: center; color: #fb246a; font-weight: bold; ">FİRMA BİLGİLERİ</h4>
+    </div>
+    @foreach (var item in Model)
+    {
+    <span>@item.Name</span>
+    <p id="descriptionPlaceholder">@item.Description.Substring(0, 100)</p>
+    <ul>
+        <li>İletişim : <span>@item.Phone</span></li>
+        <li>Adres : <span>@item.Address</span></li>
+        <li>Email : <span>@ViewBag.mail</span></li>
+        <li>Web : <span>@item.Website</span></li>
+    </ul>
+    }
+</div>

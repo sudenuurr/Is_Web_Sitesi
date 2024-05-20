@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.Advert
+@{
+    ViewData["Title"] = "EditAdvert";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h1>İlan Düzenleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("EditAdvert", "Advert", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.AdvertID)
+    @Html.HiddenFor(x => x.CompanyID)
+    @Html.HiddenFor(x => x.PostedDate)
+    @Html.Label("Departman")
+    @Html.TextBoxFor(x => x.Department, new { @class = "form-control" })
+    <br />
+    @Html.Label("Çalışma Türü")
+    @Html.TextBoxFor(x => x.JobType, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Description, 3, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Gereklilikler")
+    @Html.TextAreaFor(x => x.Required, 3, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Deneyim")
+    @Html.TextAreaFor(x => x.Experience, 3, 3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Son Başvuru Tarihi")
+    @Html.TextBoxFor(x => x.ApplicationDeadline, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}
+

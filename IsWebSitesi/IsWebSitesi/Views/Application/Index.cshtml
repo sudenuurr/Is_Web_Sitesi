@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<Application>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <h1 style="text-align: center;">Firma Başvuru Listesi</h1><br />
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>İlan Başlık</th>
+                                    <th>Başvuru Tarihi</th>
+                                    <th>Başvuru Durumu</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.ApplicationID</td>
+                                        <td>@item.Advert.Department</td>
+                                        <td>@item.ApplicationDate.ToShortDateString()</td>
+                                        <td>@item.Status</td>
+                                        <td><a href="/Application/ApplicationEdit/@item.ApplicationID" class="btn btn-secondary">Detay</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

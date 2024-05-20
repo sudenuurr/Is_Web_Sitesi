@@ -1,0 +1,121 @@
+﻿@using EntityLayer.Concrete
+@model List<Advert>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<main>
+
+    <div class="slider-area ">
+
+        <div class="slider-active">
+            <div class="single-slider slider-height d-flex align-items-center" data-background="/jobportal/assets/img/hero/h1_hero.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-9 col-md-10">
+                            <div class="hero__caption">
+                                <h1>Hayallerinizdeki İşe Buradan Ulaşın</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-8">
+
+                            <form action="#" class="search-box">
+                                <div class="input-form">
+                                    <input type="text" placeholder="Anahtar Kelime">
+                                </div>
+                                <div class="select-form">
+                                    <div class="select-itms">
+                                        <select name="select" id="select1">
+                                            @await Component.InvokeAsync("CityList")
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-form">
+                                    <a href="#">İş Bul</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Site kullanımı*@
+    <div class="apply-process-area apply-bg pt-150 pb-150" data-background="/jobportal/assets/img/gallery/how-applybg.png">
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle white-text text-center">
+                         <h2>NASIL KULLANIRIM?</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Apply Process Caption -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <span class="flaticon-search"></span>
+                        </div>
+                        <div class="process-cap">
+                            <h5>1. İş Arayın</h5>
+                            <p>Size en uygun olan işi ilanlar arasından arayarak bulun.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <span class="flaticon-curriculum-vitae"></span>
+                        </div>
+                        <div class="process-cap">
+                            <h5>2. İş Başvurusunda Bulunun</h5>
+                            <p>Bulduğunuz ilana başvuru yaparak işe alım sürecinizi hızlandırın.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-process text-center mb-30">
+                        <div class="process-ion">
+                            <span class="flaticon-tour"></span>
+                        </div>
+                        <div class="process-cap">
+                            <h5>3. Size Uygun Firmalarla Görüşmeler Sağlayın</h5>
+                            <p>Size uygun olan firmalarla görüşmeler sağlayarak detaylar hakkında dah fazla bilgiye ulaşabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*ilanlar*@
+    <section class="featured-job-area feature-padding">
+        <div class="container">
+            <!-- Section Tittle -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle text-center">
+                        <h2>İLANLAR</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    @await Component.InvokeAsync("AdvertLast5")
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Advert>
+
+<div class="row">
+    <div class="col-lg-12">
+        
+        <div class="table-responsive table--no-card m-b-40">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman</th>
+                        <th>Kategori</th>
+                        <th class="text-right">Çalışma Türü</th>
+                        <th class="text-right">Deneyim</th>
+                        <th class="text-right">Son Başvuru Tarihi</th>
+                        <th class="text-right">Detaylar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Take(5))
+                    {
+                        <tr>
+                            <td>@item.AdvertID</td>
+                            <td>@item.Department</td>
+                            <td>@item.Category.Name</td>
+                            <td class="text-right">@item.JobType</td>
+                            <td class="text-right">@item.Experience</td>
+                            <td class="text-right">@item.ApplicationDeadline.ToShortDateString()</td>
+                            <td class="text-right"><a href="/Adverts/AdvertsDetail/@item.AdvertID/">Detay</a></td>
+                        </tr>
+                    }
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</div>

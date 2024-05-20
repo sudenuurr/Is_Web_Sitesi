@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<EntityLayer.Concrete.AppUser> UserManager
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-square" src="~/CompanyImage/@UserManager.GetUserAsync(User).Result.ImageUrl" style="width: 100px; height: 100px; display: block; margin: 0 auto;" />
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold" style="text-align: center; display: block;">@UserManager.GetUserAsync(User).Result.UserName</span>
+
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="/Admin/Widget/Index"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
+            </li>
+            <li>
+                <a href="/Admin/Advert/Index/"><i class="fa fa-book"></i> <span class="nav-label">İlanlar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Application/Index/"><i class="fa fa-bars"></i> <span class="nav-label">Başvurular</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Company/Index/"><i class="fa fa-sitemap"></i> <span class="nav-label">Firmalar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/Category/Index/"><i class="fa fa-tasks"></i> <span class="nav-label">Kategoriler</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/User/Index/"><i class="fa fa-users"></i> <span class="nav-label">Kullanıcılar</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/AdminRole/Index/"><i class="fa fa-vcard-o"></i> <span class="nav-label">Roller</span>  </a>
+            </li>
+            <li>
+                <a href="/Admin/AdminMessage/AdminInBox/"><i class="fa fa-envelope"></i> <span class="nav-label">Mesajlar</span></a>
+                <a href="/Admin/AdminMessage/AdminAddMessage/"><i class="fa fa-paper-plane"></i> <span class="nav-label">Mesaj Gönder</span></a>
+            </li>
+            <li>
+                <a href="/AnaSayfa/Index/"><i class="fa fa-arrow-circle-o-right"></i> <span class="nav-label">Siteye Git</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Advert
+@{
+    ViewData["Title"] = "AdvertEdit";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<h1> İlan Düzenleme Sayfası</h1>
+@using (Html.BeginForm("AdvertEdit", "Adverts", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.AdvertID)
+    @Html.HiddenFor(x => x.CompanyID)
+    @Html.Label("Departman")
+    @Html.TextBoxFor(x => x.Department, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Department)
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.aa, new { @class = "form-control" })
+    <br />
+    @Html.Label("Çalışma Şekli")
+    @Html.TextBoxFor(x => x.JobType, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.JobType)
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description)
+    <br />
+    @Html.Label("Gereklilikler")
+    @Html.TextAreaFor(x => x.Required, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Required)
+    <br />
+    @Html.Label("Deneyim")
+    @Html.TextBoxFor(x => x.Experience, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Experience)
+    <br />
+    @Html.Label("İlan Tarihi")
+    @Html.TextBoxFor(x => x.PostedDate, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Son Başvuru Tarihi")
+    @Html.TextBoxFor(x => x.ApplicationDeadline, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+}
+

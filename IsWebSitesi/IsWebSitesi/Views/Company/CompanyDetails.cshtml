@@ -1,0 +1,104 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Company>
+
+@{
+    ViewData["Title"] = "CompanyDetails";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<body>
+
+    <main>
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="/jobportal/assets/img/hero/about.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>FİRMA HAKKINDA</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- job post company Start -->
+        @foreach (var item in Model)
+        {
+            <div class="job-post-company pt-120 pb-120">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <!-- Left Content -->
+                        <div class="col-xl-12 col-lg-12">
+                            <!-- job single -->
+
+                            <div class="single-job-items mb-50">
+                                <div class="job-items">
+                                    <div class="company-img company-img-details">
+                                        <a href="#"><img src="~/CompanyImage/@item.ImageUrl" style="width:9em; height:7em;" alt=""></a>
+                                    </div>
+                                    <div class="job-tittle">
+                                        <a href="#">
+                                            <h4>@item.Name</h4>
+                                        </a>
+                                        <ul>
+                                            <li><i class="fas fa-map-marker-alt"></i>@await Component.InvokeAsync("CityListWithCompany", new { id = ViewBag.i })</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- job single End -->
+
+                            <div class="job-post-details">
+                                <div class="post-details1 mb-50">
+                                    <!-- Small Section Tittle -->
+                                    <div class="small-section-tittle">
+                                        <h4>Firma Bilgileri</h4>
+                                    </div>
+                                    <p>@item.Description</p>
+                                </div>
+                                <div class="post-details2  mb-50">
+                                    <!-- Small Section Tittle -->
+                                    <div class="small-section-tittle">
+                                        <h4>Web Sitesi</h4>
+                                    </div>
+                                    <ul>
+                                        <li>@item.Website</li>
+                                    </ul>
+                                </div>
+                                <div class="post-details2  mb-50">
+                                    <!-- Small Section Tittle -->
+                                    <div class="small-section-tittle">
+                                        <h4>Adres</h4>
+                                    </div>
+                                    <ul>
+                                        <li>@item.Address</li>
+                                    </ul>
+                                </div>
+                                <div class="post-details2  mb-50">
+                                    <!-- Small Section Tittle -->
+                                    <div class="small-section-tittle">
+                                        <h4>Telefon</h4>
+                                    </div>
+                                    <ul>
+                                        <li>@item.Phone</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- job post company End -->
+        }
+    </main>
+
+</body>
+</html>

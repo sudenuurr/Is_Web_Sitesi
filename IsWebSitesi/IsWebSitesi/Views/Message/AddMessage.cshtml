@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.Message2
+@{
+    ViewData["Title"] = "AddMessage";
+    Layout = "~/Views/Shared/EmployerLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<h1 style="text-align:center">Mesaj Gönder</h1>
+<br />
+@using (Html.BeginForm("AddMessage", "Message", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample">
+                    @Html.Label("Alıcı")
+                    @Html.DropDownListFor(x => x.ReceiverID, (List<SelectListItem>)ViewBag.uv, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Konu")
+                    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Subject)
+                    <br />
+                    @Html.Label("İçerik")
+                    @Html.TextAreaFor(x => x.Details, 5, 3, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Details)
+                    <button class="btn btn-success">Gönder</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+
